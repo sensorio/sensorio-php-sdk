@@ -35,16 +35,16 @@ class SensorioClient
     private $user;
 
     /**
-     * @var $appKey string
+     * @var $apiKey string
      */
-    private $appKey;
+    private $apiKey;
 
-    public function __construct(string $appKey)
+    public function __construct(string $apiKey)
     {
         $this->company = new SensorioCompany($this);
         $this->user = new SensorioUser($this);
 
-        $this->appKey = $appKey;
+        $this->apiKey = $apiKey;
 
         $this->httpClient = $this->getDefaultHttpClient();
         $this->requestFactory = MessageFactoryDiscovery::find();
@@ -54,7 +54,7 @@ class SensorioClient
 
     public function post($endpoint, $json)
     {
-        $response = $this->sendRequest('POST', "https://www.sensorio.io/api/$endpoint", $json);
+        $response = $this->sendRequest('POST', "https://www.sensorio.io/api/$endpoint", $json + ["api_key" => $this->apiKey]);
         return $this->handleResponse($response);
     }
 
@@ -72,7 +72,9 @@ class SensorioClient
     private function sendRequest($method, $uri, $body = null)
     {
         $body = is_array($body) ? json_encode($body) : $body;
-        $headers = [];
+        $headers = [
+            "Content-Type: application/json"
+        ];
         $request = $this->requestFactory->createRequest($method, $uri, $headers, $body);
 
         return $this->httpClient->sendRequest($request);

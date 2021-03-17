@@ -6,6 +6,6 @@ class SensorioUser extends SensorioResource
 {
     public function trackEvent(array $options)
     {
-        $this->client->post("users", $options);
+        return $this->client->post("users/events", $options);
     }
 }

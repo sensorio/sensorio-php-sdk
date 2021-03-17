@@ -17,5 +17,5 @@ Initialize your client using your access token:
 ```php
 use Sensorio\SensorioClient;
 
-$client = new SensorioClient('<insert_app_key_here>');
+$client = new SensorioClient('<insert_api_key_here>');
 ```
