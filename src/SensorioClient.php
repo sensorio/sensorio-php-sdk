@@ -54,7 +54,7 @@ class SensorioClient
 
     public function post($endpoint, $json)
     {
-        $response = $this->sendRequest('POST', "https://www.sensorio.io/api/$endpoint", $json + ["api_key" => $this->apiKey]);
+        $response = $this->sendRequest('POST', "https://www.sensorio.io/api/$endpoint", $json + ["apiKey" => $this->apiKey]);
         return $this->handleResponse($response);
     }
 
