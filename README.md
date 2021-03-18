@@ -19,3 +19,30 @@ use Sensorio\SensorioClient;
 
 $client = new SensorioClient('<insert_api_key_here>');
 ```
+
+## Users
+Track user events
+
+```php
+$user = new SensorioUser($client);
+$user->trackEvent([
+    "companyId" => "1", //company id
+    "companyName" => "ACME company", //company name
+    "userId" => "11XAD", //user id
+    "userName" => "John Doe", //user name
+    "category" => "feature", //event category
+    "action" => "action", // event action
+]);
+```
+## Companies.
+Track companies events.
+
+```php
+$company = new SensorioCompany($client);
+$company->trackEvent([
+    "companyId" => "1", //company id
+    "companyName" => "ACME company", //company name
+    "category" => "feature", //event category
+    "action" => "action", // event action
+]);
+```
