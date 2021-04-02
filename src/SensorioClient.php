@@ -27,12 +27,12 @@ class SensorioClient
     /**
      * @var $company SensorioCompany
      */
-    private $company;
+    public $company;
 
     /**
      * @var $user SensorioUser
      */
-    private $user;
+    public $user;
 
     /**
      * @var $apiKey string
