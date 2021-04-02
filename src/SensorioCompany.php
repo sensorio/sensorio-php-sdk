@@ -8,4 +8,9 @@ class SensorioCompany extends SensorioResource
     {
         return $this->client->post("companies/events", $options);
     }
+
+    public function update(array $options)
+    {
+        return $this->client->post("companies/update", $options);
+    }
 }
