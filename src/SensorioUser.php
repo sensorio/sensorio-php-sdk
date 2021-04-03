@@ -8,4 +8,9 @@ class SensorioUser extends SensorioResource
     {
         return $this->client->post("users/events", $options);
     }
+
+    public function update(array $options)
+    {
+        return $this->client->post("users/update", $options);
+    }
 }
