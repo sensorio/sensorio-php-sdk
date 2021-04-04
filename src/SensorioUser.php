@@ -13,4 +13,9 @@ class SensorioUser extends SensorioResource
     {
         return $this->client->post("users/update", $options);
     }
+
+    public function delete()
+    {
+        return $this->client->post("users/delete", []);
+    }
 }

@@ -13,4 +13,9 @@ class SensorioCompany extends SensorioResource
     {
         return $this->client->post("companies/update", $options);
     }
+
+    public function delete()
+    {
+        return $this->client->post("companies/delete", []);
+    }
 }
